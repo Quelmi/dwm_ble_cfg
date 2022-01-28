@@ -155,6 +155,27 @@ def main():
         'z_error [m]' :  []
     })
 
+    # Used to save the values calculated at <nodes_cfg_label>.yaml
+    file1 = open(dwm1001_drivers_path + "/params/nodes_cfg/" + nodes_cfg_label + ".yaml", 'r')
+    Lines = file1.readlines()
+    f_gt = open(dwm1001_drivers_path + "/params/nodes_cfg/" + nodes_cfg_label + "_temp.yaml", "w")
+    for i in range(12):
+        f_gt.write(Lines[i])
+    f_gt.write('  anchor0_coordinates: ' + str(autocalibrated_coords[0]) + ' #DW009A\n')
+    f_gt.write('  anchor1_coordinates: ' + str(autocalibrated_coords[1]) + ' #DW2D9C\n')
+    f_gt.write('  anchor2_coordinates: ' + str(autocalibrated_coords[2]) + ' #DW4848\n')
+    f_gt.write('  anchor3_coordinates: ' + str(autocalibrated_coords[3]) + ' #DW0038\n')
+    f_gt.write('  anchor4_coordinates: ' + str(autocalibrated_coords[4]) + ' #DW47FC\n')
+    for i in range(17,32):
+        f_gt.write(Lines[i])
+    f_gt.write('  anchor0_coordinates: ' + str(autocalibrated_coords[5]) + ' #DW4984\n')
+    f_gt.write('  anchor1_coordinates: ' + str(autocalibrated_coords[6]) + ' #DW4806\n')
+    f_gt.write('  anchor2_coordinates: ' + str(autocalibrated_coords[7]) + ' #DW4814\n')
+    f_gt.write('  anchor3_coordinates: ' + str(autocalibrated_coords[8]) + ' #DW43EB\n')
+    f_gt.write('  anchor4_coordinates: ' + str(autocalibrated_coords[9]) + ' #DW1632\n')
+    for i in range(37,43):
+        f_gt.write(Lines[i])
+
     for i in range(n_total_anchors):
         # solving stages 1 and 2 for all samples j therefore there will be j coord estimations for each anchor
         #estimated_anchor_coords = autocalibrated_coords_j[i,:,:].T
