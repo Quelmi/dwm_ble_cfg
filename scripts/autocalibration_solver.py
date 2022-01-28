@@ -155,7 +155,7 @@ def main():
         'z_error [m]' :  []
     })
 
-    # Used to save the values calculated at <nodes_cfg_label>.yaml
+    # Used to save the values calculated at <nodes_cfg_label>_temp.yaml
     file1 = open(dwm1001_drivers_path + "/params/nodes_cfg/" + nodes_cfg_label + ".yaml", 'r')
     Lines = file1.readlines()
     f_gt = open(dwm1001_drivers_path + "/params/nodes_cfg/" + nodes_cfg_label + "_temp.yaml", "w")
